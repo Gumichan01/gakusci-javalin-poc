@@ -10,8 +10,9 @@ fun main() {
     }.start(8080)
     app.routes {
         get("/") { ctx ->
-            ctx.result("""Hello world! 
-                |/!\ THSI IS A POC. DO NOT USE IT IN PRODUCTION /!\ """.trimMargin())
+            ctx.result("""<p>Hello Gakusci POC client</p>
+            <p>/!\ This webapp is a Proof of Concept /!\</p>
+            <strong>DO NOT USE IT IN PRODUCTION</strong>""")
         }
     }
 }
