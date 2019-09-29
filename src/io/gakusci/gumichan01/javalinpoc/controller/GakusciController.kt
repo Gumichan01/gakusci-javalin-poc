@@ -1,7 +1,6 @@
 package io.gakusci.gumichan01.javalinpoc.controller
 
-import io.gakusci.gumichan01.javalinpoc.domain.model.DocumentEntry
-import io.gakusci.gumichan01.javalinpoc.domain.service.IService
+import io.gakusci.gumichan01.javalinpoc.restapi.GakusciHttpClient
 import io.javalin.http.Context
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -19,14 +18,15 @@ class GakusciController {
     fun search(context: Context) {
         val query: String? = context.queryParam("q")
         // Just a quick and dirty code
-        val halService: IService = object : IService {
-            override fun searchForResourceName(query: String): List<DocumentEntry> {
-                return listOf(DocumentEntry("hello","world"), DocumentEntry("baka","nani"))
+        val halService = object : Any() {
+            private val halUrl = "https://api.archives-ouvertes.fr/search/?q=%s&wt=json"
+            fun searchForResourceName(query: String): String {
+                val url = halUrl.format(query)
+                return GakusciHttpClient(url).get()
             }
         }
 
         logger.info("query: $query")
-
         if (query != null) {
             val documentEntries = halService.searchForResourceName(query)
             context.status(200)
