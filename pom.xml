@@ -10,16 +10,16 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <kotlin.version>1.3.50</kotlin.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<main.class>io.gakusci.gumichan01.javalinpoc.GakusciJavalinApplicationKt</main.class>
+        <kotlin.version>1.3.71</kotlin.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<main.class>io.gakusci.gumichan01.javalinpoc.GakusciJavalinApplicationKt</main.class>
     </properties>
 
     <dependencies>
 		<dependency>
 			<groupId>io.javalin</groupId>
 			<artifactId>javalin</artifactId>
-			<version>3.5.0</version>
+			<version>3.8.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
